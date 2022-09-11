@@ -8,23 +8,32 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.qa.practice.base.TestBase;
+import com.qa.practice.pages.DashBoard;
 import com.qa.practice.pages.loginPage;
 
 public class loginPageTEST extends TestBase {
 
-	loginPage lp ;
 	
+	loginPage lp ;
+	DashBoard db;
 	
 	@BeforeMethod
 	public void SetUp() throws IOException {
 		
 		driver_run();
-		
 		lp = new loginPage();
+		db =new DashBoard();
+		
 		
 	}	
 		
-	
+	@Test
+	public void validLoginTest() {
+		
+	db=	lp.dologin(pro.getProperty("username"), pro.getProperty("password"));
+	Assert.assertTrue(db.userNameAfterLogin());	
+		
+	}
 	
 	
 	
@@ -45,8 +54,7 @@ public class loginPageTEST extends TestBase {
 	}
 	
 	
-	
-	
+
 	
 	@AfterMethod
 	public void tearDown() {

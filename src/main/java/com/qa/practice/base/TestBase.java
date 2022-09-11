@@ -23,7 +23,7 @@ public class TestBase {
 	public void driver_run() throws IOException  {
 		
 		pro =new  Properties();
-		fis = new FileInputStream("/Users/jekha/eclipse-workspace/TestBeeFramework/src/main/java/com/qa/practice/config/configaration.properties");
+		fis = new FileInputStream("C:\\Users\\jekha\\eclipse-workspace\\TestBeeFramework_Deepa\\src\\main\\java\\com\\qa\\practice\\config\\configaration.properties");
     
 		pro.load(fis);
 		String browser =pro.getProperty("Browser");

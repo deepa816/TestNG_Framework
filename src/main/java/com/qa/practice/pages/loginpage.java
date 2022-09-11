@@ -9,11 +9,7 @@ import com.qa.practice.base.TestBase;
 public class loginPage extends TestBase{
 
   //Constructor  //page factory
-	public loginPage() {
-		
-		PageFactory.initElements(driver, this); //this reffer to local class instances
-		
-	}
+	
 	
 	
 	@FindBy(xpath="//input[@name='email']")
@@ -30,6 +26,27 @@ public class loginPage extends TestBase{
 	
 	@FindBy(xpath="(//*[contains(@class,'icon-box icon')])[2]")
 	WebElement paymentLogo;
+	
+	
+    public loginPage() {
+		
+		PageFactory.initElements(driver, this); //this reffer to local class instances
+		
+	}
+	
+    
+    public DashBoard dologin (String name,String pwd) {
+    	userName.clear();
+    	userName.sendKeys(name);
+    	passWord.clear();
+    	passWord.sendKeys(pwd);
+    	loginbutton.click();
+    	
+    	return new DashBoard();
+    	
+    }
+    
+    
 	
 	public boolean phpLogo() {
 		return logo.isDisplayed();
